@@ -9,17 +9,12 @@ Variables & Data Types: Storing data using Strings, Integers, Floats, and Boolea
 String functions
 
 Collections:
-
 Lists: Ordered, mutable collections. 
-
 Tuples: Ordered, immutable collections.
-
 Dictionaries: used to store data objects with a key.
 
 Control Flow:
-
 If/Else Statements
-
 Loops: for and while loops
 
 Functions
@@ -30,6 +25,5 @@ File I/O: How to open, read, write, and append text files.
 
 Classes, Objects and Inheritance
 
-Modules
 
 Brief Introduction to Colab
