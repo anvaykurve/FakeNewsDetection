@@ -1,7 +1,10 @@
 # FakeNewsDetection
 Set up Python in VSCode. Built a pipeline and Git Integration
+
 Setup Git repository
+
 Learned the following things in Python:
+
 Variables & Data Types: Storing data using Strings, Integers, Floats, and Booleans.
 String functions
 Collections:
