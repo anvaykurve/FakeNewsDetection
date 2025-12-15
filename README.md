@@ -7,17 +7,24 @@ Learned the following things in Python:
 
 Variables & Data Types: Storing data using Strings, Integers, Floats, and Booleans.
 String functions
+
 ------------------------------------------------------
 Collections:
+
 Lists: Ordered, mutable collections. 
 
 Tuples: Ordered, immutable collections.
 
 Dictionaries: used to store data objects with a key. 
+
 ------------------------------------------------------
+
 Control Flow:
+
 If/Else Statements
+
 Loops: for and while loops
+
 ------------------------------------------------------
 Functions
 
