@@ -1,37 +1,57 @@
-1. Exploring Columns: Title, Text, and Label
+1.  Exploring Columns: Title, Text, and Label
 
 Loading Data: Use pd.read_csv('filename.csv') to import the dataset into a DataFrame.
 
 Inspecting Structure:
-
 Use df.head() to view the first 5 rows and understand the column structure (e.g., verifying title, text, and label exist).
-
 Use df.columns to list all column names and df.dtypes to verify data types (ensuring text columns are objects/strings).
-
 Use df.shape to see the total number of rows (articles) and columns.
-
----------------------------------------------------------
+------------------------------------------------------------------
 2.  Checking Missing Values and Basic Statistics
 
 Missing Values:
 Run df.isna().sum() to identify null values in the text or title columns.
-
 Handling Nulls: If a news article has no text, it cannot be classified. You can drop these rows using df.dropna() or fill them if appropriate.
 
 Basic Statistics:
-
 Use df.describe() to get summary statistics. While typically for numbers, on text columns, it shows unique counts and the most frequent entries (useful for spotting duplicate articles).
-
 Duplicate Detection: Use df.duplicated().sum() to check for repeated articles, which can bias the model.
-
-----------------------------------------------------------
-3. Removing Unwanted Columns
+------------------------------------------------------------------
+3.  Removing Unwanted Columns
 
 Dropping Columns:
-
 Identify columns irrelevant to classification (e.g., id, author, index).
-
 Use df.drop(['column_name'], axis=1) to remove them.
-
 Subsetting: Alternatively, select only the columns you need: df = df[['title', 'text', 'label']].copy().
 ------------------------------------------------------------------
+4.  Combining Fields: Creating a Content Column
+
+Feature Engineering:
+Often, the title of a news article contains vital information not found in the body text.
+Action: Create a new column (e.g., content) by concatenating the title and text. This ensures the model treats them as a single rich feature.
+Note: While the videos focus on numeric manipulation, text concatenation in Pandas follows standard Python string logic.
+------------------------------------------------------------------
+5.  Text Cleaning
+This is the most critical step to convert human language into a machine readable format.
+Lowercasing:
+Lowercasing normalises the treatment of two same words. Eg. Apple and apple
+
+Removing URLs, Punctuation, and Numbers:
+Regex (Regular Expressions): Use Python's re library.
+URLs: Remove patterns starting with http:// or www as they rarely carry sentiment or topic information.
+Punctuation: Using string. punctuation or regex to strip characters like '!', '.', ',' which add noise to tokenisation.
+Numbers: Digits are often removed unless specific dates/quantities are relevant to the fake news context.
+
+Removing Stopwords: Stopwords are high-frequency words (e.g., the, is) that carry little special meaning.
+Library: nltk.corpus.stopwords
+Process: Iterate through tokens and filter out any word present in the standard English stopword list. This reduces the dataset size and focuses the model on keywords.
+
+Lemmatisation vs. Stemming: The tutorials highlight that Stemming simply chops off ends of words (changing "giving" to "giv"), which can lead to non-words.
+Technique: Lemmatisation (using WordNetLemmatizer) is preferred. It uses a dictionary to resolve words to their meaningful root form (e.g., "better"->"good", "running"->"run").
+Prerequisite: Effective lemmatisation often requires Part-of-Speech (POS) tags to know if a word is a noun, verb, or adjective.
+------------------------------------------------------------------
+6.  Saving Cleaned Text
+Final Output:
+Store the processed data in a new column (e.g., clean_content) alongside the original text for comparison.
+Export: Save the cleaned dataset using df.to_csv('cleaned_news_data.csv', index=False) to be used in next week's model building phase.
+
