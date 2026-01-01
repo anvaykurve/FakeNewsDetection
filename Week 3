@@ -1,0 +1,16 @@
+Learning from Week 3
+1. Introduction to Word Embeddings
+Definition: Word2Vec is a "Word Embedding" technique that represents words as real-valued vectors in a high-dimensional space.
+Semantic Similarity: Unlike Bag of Words or TF-IDF, Word2Vec ensures that words with similar meanings are placed close to each other in the vector space.
+
+2. Types of Word Embeddings
+Frequency-based: Such as Bag of Words, TF-IDF, and GloVe (Global Vectors), which rely on matrix factorization.
+Prediction-based: This is where Word2Vec belongs, as it uses neural networks to predict words and learn their vector representations.
+
+3. Core Architectures
+CBOW (Continuous Bag of Words): Predicts a "target word" based on its surrounding "context words."
+Skip-gram: The inverse of CBOW; it uses a single "target word" to predict the surrounding "context words."
+
+4. Advantages over Traditional Methods
+Dimensionality: Traditional methods like One-Hot Encoding create very sparse and high-dimensional vectors (equal to the vocabulary size). Word2Vec creates dense, low-dimensional vectors (e.g., 100 or 300 dimensions).
+Contextual Meaning: Word2Vec captures the relationship between words (e.g., "King" and "Queen" will have similar vector patterns).
