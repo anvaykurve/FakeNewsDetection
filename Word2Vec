@@ -1,0 +1,21 @@
+import numpy as np
+from gensim.models import Word2Vec
+
+# Tokenize text for Word2Vec (list of lists of words) [cite: 28]
+tokenized_sentences = [text.split() for text in X_train]
+
+# Train Word2Vec model [cite: 29]
+w2v_model = Word2Vec(sentences=tokenized_sentences, vector_size=100, window=5, min_count=2, workers=4)
+
+# Function to average word vectors for a document [cite: 30]
+def document_vector(doc_tokens, model):
+    # Filter out words not in the model's vocabulary
+    valid_tokens = [word for word in doc_tokens if word in model.wv]
+    if not valid_tokens:
+        return np.zeros(model.vector_size)
+    # Return the mean of the vectors
+    return np.mean(model.wv[valid_tokens], axis=0)
+
+# Create document vectors for training data
+X_train_w2v = np.array([document_vector(text.split(), w2v_model) for text in X_train])
+X_test_w2v = np.array([document_vector(text.split(), w2v_model) for text in X_test])
