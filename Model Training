@@ -1,0 +1,26 @@
+from sklearn.linear_model import LogisticRegression
+from sklearn.svm import SVC
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score, classification_report, confusion_matrix
+
+# Initialize models [cite: 34, 35, 36]
+models = {
+    "Logistic Regression": LogisticRegression(),
+    "SVM": SVC(),
+    "Random Forest": RandomForestClassifier()
+}
+
+# Loop through models to train and evaluate (example using TF-IDF data) [cite: 40]
+for name, model in models.items():
+    print(f"Training {name}...")
+    model.fit(X_train_tfidf, y_train)
+    
+    # Generate predictions [cite: 42]
+    y_pred = model.predict(X_test_tfidf)
+    
+    # Evaluation [cite: 43, 44, 45, 46]
+    print(f"--- {name} Results ---")
+    print(f"Accuracy: {accuracy_score(y_test, y_pred)}")
+    print("Classification Report:\n", classification_report(y_test, y_pred))
+    print("Confusion Matrix:\n", confusion_matrix(y_test, y_pred))
+    print("\n")
