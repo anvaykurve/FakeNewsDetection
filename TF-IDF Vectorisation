@@ -1,0 +1,14 @@
+from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.model_selection import train_test_split
+
+# Split data into training and testing sets (80/20 split) [cite: 23]
+X_train, X_test, y_train, y_test = train_test_split(df['clean_text'], df['label'], test_size=0.2, random_state=42)
+
+# Initialize TF-IDF Vectorizer with unigrams and bigrams [cite: 26]
+tfidf_vectorizer = TfidfVectorizer(ngram_range=(1, 2), max_features=5000)
+
+# Fit and transform the training data, transform the test data [cite: 25]
+X_train_tfidf = tfidf_vectorizer.fit_transform(X_train)
+X_test_tfidf = tfidf_vectorizer.transform(X_test)
+
+print("TF-IDF Feature shape:", X_train_tfidf.shape) # Understanding feature dimensions [cite: 27]
