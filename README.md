@@ -1,57 +1,113 @@
-# FakeNewsDetection
-Set up Python in VSCode. Built a pipeline and Git Integration
+# Fake News Detection using NLP
 
-Setup Git repository
+## About the Project
 
-Learned the following things in Python:
+Misinformation is a growing problem in the digital age. This project aims to build an automated system that can detect fake news based on textual content. By analysing the linguistic patterns in news articles, we trained machine learning models to distinguish between authentic and fabricated stories.
 
-Variables & Data Types: Storing data using Strings, Integers, Floats, and Booleans.
-String functions
+### Key Features
 
-------------------------------------------------------
-Collections:
+- Text cleaning pipeline (Lemmatization, Stopword removal)  
+- Comparison of Statistical (TF-IDF) vs. Semantic (Word2Vec) text representation  
+- Implementation of Logistic Regression, SVM, and Random Forest classifiers  
 
-Lists: Ordered, mutable collections. 
+---
 
-Tuples: Ordered, immutable collections.
+## Dataset
 
-Dictionaries: used to store data objects with a key. 
+The dataset used for this project contains labelled news articles with the following columns:
 
-------------------------------------------------------
+- `title`: The headline of the news article  
+- `text`: The main body content  
+- `label`: The target variable (e.g., 1 for Fake, 0 for Real)  
 
-Control Flow:
+**Note:** The dataset is processed to combine title and text into a single content feature for better context.
 
-If/Else Statements: Elif is used within a block
+---
 
-Loops: for and while loops
+## Installation
 
-------------------------------------------------------
-Functions
 
-The def keyword: Defines a reusable block of code.
 
-Modules: Importing external code libraries
+```bash
+###Clone the repository
 
-File I/O: How to open, read, write, and append text files.
-"r": Read only
+git clone https://github.com/anvaykurve/FakeNewsDetection.git
+cd FakeNewsDetection
 
-"w": Write (Overwrite the file completely)
+### Create a virtual environment (optional but recommended)
 
-"a": Append (Add to the end of the file)
+python -m venv venv
+source venv/bin/activate   # On Windows use `venv\Scripts\activate`
 
-"r+": Read and Write
+### Install dependencies
 
------------------------------------------------------
-Classes, Objects and Inheritance
+pip install -r requirements.txt
 
-I can create multiple objects from the same class, and they will each hold their own unique data.
+### If requirements.txt is missing, install the core libraries manually:
 
-The __init__ function: It runs automatically when you create a new object to set up its initial data.
+pip install pandas numpy scikit-learn nltk gensim matplotlib seaborn
 
-Inheritance: The ability to create a new class that "inherits" all functions from an existing class.
+### Download NLTK data
+### Open a Python shell and run:
 
-------------------------------------------------------
+import nltk
+nltk.download('stopwords')
+nltk.download('wordnet')
 
-Brief Introduction to Colab
+```
 
-I can write and execute code in Python directly. It shows the output of blocks below them, which is good to test certain parts.
+## Project Structure
+
+## 📂 Project Structure
+
+```bash
+FakeNewsDetection/
+│
+├── data/                   # Dataset files (raw and cleaned)
+├── notebooks/              # Jupyter/Colab notebooks for experiments
+│   ├── 01_Data_Preprocessing.ipynb
+│   ├── 02_Feature_Extraction_TFIDF.ipynb
+│   ├── 03_Feature_Extraction_Word2Vec.ipynb
+│   └── 04_Model_Training.ipynb
+├── src/                    # Source code scripts (optional)
+├── README.md               # Project documentation
+└── requirements.txt        # Python dependencies
+```
+## 🚀 Methodology
+
+### 1. Preprocessing
+
+Raw text data is noisy. We implemented a cleaning pipeline that includes:
+
+- Lowercasing: To ensure uniformity  
+- Regex Cleaning: Removing URLs, special characters, and numbers  
+- Stopword Removal: Eliminating common words (e.g., "the", "is") that add little value  
+- Lemmatization: Converting words to their root form (e.g., "running" → "run")  
+
+### 2. Feature Extraction
+
+We experimented with two techniques to convert text into numerical vectors:
+
+- **TF-IDF (Term Frequency–Inverse Document Frequency):** Captures the importance of words based on frequency  
+- **Word2Vec:** A deep learning-based embedding technique that captures semantic relationships and context  
+
+### 3. Models
+
+We trained and evaluated the following supervised learning algorithms:
+
+- Logistic Regression: A strong baseline for binary classification  
+- Support Vector Machine (SVM): Effective in high-dimensional spaces  
+- Random Forest: An ensemble method to reduce overfitting  
+
+---
+
+## 🛠 Technologies Used
+
+- **Language:** Python 3.x  
+- **Libraries:** Pandas, NumPy, Scikit-learn, NLTK, Gensim, Matplotlib, Seaborn  
+- **Tools:** VSCode, Google Colab, Git  
+
+---
+
+Made by Anvay Kurve
+
