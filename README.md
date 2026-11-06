@@ -73,7 +73,7 @@ FakeNewsDetection/
 ├── README.md               # Project documentation
 └── requirements.txt        # Python dependencies
 ```
-## 🚀 Methodology
+## Methodology
 
 ### 1. Preprocessing
 
@@ -101,7 +101,7 @@ We trained and evaluated the following supervised learning algorithms:
 
 ---
 
-## 🛠 Technologies Used
+## Technologies Used
 
 - **Language:** Python 3.x  
 - **Libraries:** Pandas, NumPy, Scikit-learn, NLTK, Gensim, Matplotlib, Seaborn  
