@@ -2,7 +2,7 @@
 
 ## About the Project
 
-Misinformation is a growing problem in the digital age. This project aims to build an automated system that can detect fake news based on textual content. By analysing the linguistic patterns in news articles, we trained machine learning models to distinguish between authentic and fabricated stories.
+Misinformation is a growing problem in the digital age. This project aims to build an automated system that can detect fake news based on textual content. By analysing the linguistic patterns in news articles, I trained machine learning models to distinguish between authentic and fabricated stories.
 
 ### Key Features
 
@@ -25,8 +25,6 @@ The dataset used for this project contains labelled news articles with the follo
 ---
 
 ## Installation
-
-
 
 ```bash
 ###Clone the repository
@@ -58,8 +56,6 @@ nltk.download('wordnet')
 
 ## Project Structure
 
-## 📂 Project Structure
-
 ```bash
 FakeNewsDetection/
 │
@@ -77,7 +73,7 @@ FakeNewsDetection/
 
 ### 1. Preprocessing
 
-Raw text data is noisy. We implemented a cleaning pipeline that includes:
+Raw text data is noisy. I implemented a cleaning pipeline that includes:
 
 - Lowercasing: To ensure uniformity  
 - Regex Cleaning: Removing URLs, special characters, and numbers  
@@ -86,14 +82,14 @@ Raw text data is noisy. We implemented a cleaning pipeline that includes:
 
 ### 2. Feature Extraction
 
-We experimented with two techniques to convert text into numerical vectors:
+I experimented with two techniques to convert text into numerical vectors:
 
 - **TF-IDF (Term Frequency–Inverse Document Frequency):** Captures the importance of words based on frequency  
 - **Word2Vec:** A deep learning-based embedding technique that captures semantic relationships and context  
 
 ### 3. Models
 
-We trained and evaluated the following supervised learning algorithms:
+I trained and evaluated the following supervised learning algorithms:
 
 - Logistic Regression: A strong baseline for binary classification  
 - Support Vector Machine (SVM): Effective in high-dimensional spaces  
